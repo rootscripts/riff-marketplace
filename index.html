@@ -5,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Riff Marketplace</title>
 <meta name="description" content="Official Themes and Plugins for Riff music player.">
-<meta name="theme-color" content="#0c0d10">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
 :root{
   --font:"Inter",system-ui,-apple-system,sans-serif;
-  --bg:#0c0d10;
-  --s1:#15171d;
-  --s2:#1e212a;
-  --s3:#272b38;
-  --fg:#f3f4f7;
-  --mut:#8b8f9c;
-  --r:22px;
+  --bg:#ffffff;
+  --s1:#f3f4f6;
+  --s2:#e6e8ec;
+  --fg:#111114;
+  --mut:#5f6068;
+  --acc:#272b38;
+  --acc-h:#3b4052;
+  --r:24px;
   --r-m:14px;
   --r-s:10px;
 }
@@ -32,15 +33,14 @@ svg{display:block;flex:none}
 
 .top{position:sticky;top:0;z-index:20;background:var(--bg)}
 .top-in{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:19px;letter-spacing:-0.03em}
-.mark{width:34px;height:34px;border-radius:10px;background:var(--s2);display:flex;align-items:center;justify-content:center}
-.logo{display:block;width:20px;height:20px;background:var(--fg);-webkit-mask:url(https://raw.githubusercontent.com/rootscripts/riff/main/assets/riff.svg) center/contain no-repeat;mask:url(https://raw.githubusercontent.com/rootscripts/riff/main/assets/riff.svg) center/contain no-repeat}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:21px;letter-spacing:-0.03em}
+.logo{display:block;width:36px;height:36px;background:var(--acc);-webkit-mask:url(https://raw.githubusercontent.com/rootscripts/riff/main/assets/riff.svg) center/contain no-repeat;mask:url(https://raw.githubusercontent.com/rootscripts/riff/main/assets/riff.svg) center/contain no-repeat}
 
 .seg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:var(--r-m);background:var(--s1)}
-.pill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:var(--r-s);background:var(--fg);transition:transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);pointer-events:none}
+.pill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:var(--r-s);background:var(--acc);transition:transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);pointer-events:none}
 .seg[data-tab="plugin"] .pill{transform:translateX(100%)}
 .seg-b{position:relative;z-index:1;height:36px;padding:0 20px;border-radius:var(--r-s);font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--mut);transition:color 0.22s ease;white-space:nowrap}
-.seg-b.on{color:var(--bg)}
+.seg-b.on{color:#ffffff}
 
 .wrap{max-width:1200px;margin:0 auto;padding:24px 24px 80px}
 .hero{margin-bottom:32px}
@@ -49,7 +49,7 @@ svg{display:block;flex:none}
 
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .card{background:var(--s1);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:background 0.18s ease}
-.card:hover{background:#181b22}
+.card:hover{background:#eceef2}
 .cov{aspect-ratio:16/10;background:var(--s2);overflow:hidden}
 .cov img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)}
 .card:hover .cov img{transform:scale(1.03)}
@@ -61,11 +61,11 @@ svg{display:block;flex:none}
 .auth{font-size:13px;color:var(--mut);font-weight:500}
 .desc{font-size:14px;color:var(--mut);line-height:1.5;flex:1;margin-top:4px;word-break:break-word}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;height:44px;padding:0 18px;margin-top:14px;border-radius:var(--r-m);background:var(--fg);color:var(--bg);font-size:14px;font-weight:600;letter-spacing:-0.01em;transition:background 0.16s ease,transform 0.14s ease}
-.btn:hover{background:#dcdfe6}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;height:44px;padding:0 18px;margin-top:14px;border-radius:var(--r-m);background:var(--acc);color:#ffffff;font-size:14px;font-weight:600;letter-spacing:-0.01em;transition:background 0.16s ease,transform 0.14s ease}
+.btn:hover{background:var(--acc-h)}
 .btn:active{transform:scale(0.98)}
 .btn.alt{width:auto;background:var(--s2);color:var(--fg);padding:0 22px}
-.btn.alt:hover{background:var(--s3)}
+.btn.alt:hover{background:#d9dce3}
 
 .empty{grid-column:1/-1;background:var(--s1);border-radius:var(--r);padding:72px 24px;text-align:center}
 .empty h2{font-size:20px;font-weight:700;letter-spacing:-0.025em}
@@ -77,7 +77,7 @@ svg{display:block;flex:none}
 .sk-w2{width:36%}
 .sk-w3{width:92%}
 .sk-btn{height:44px;border-radius:var(--r-m);background:var(--s2);margin-top:14px}
-@keyframes pulse{from{opacity:0.55}to{opacity:1}}
+@keyframes pulse{from{opacity:0.5}to{opacity:1}}
 
 @media(max-width:960px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){
@@ -93,7 +93,7 @@ svg{display:block;flex:none}
 <header class="top">
   <div class="top-in">
     <a class="brand" href="./">
-      <span class="mark"><span class="logo"></span></span>
+      <span class="logo"></span>
       <span>Marketplace</span>
     </a>
     <div class="seg" id="tabs" role="tablist" data-tab="theme">
