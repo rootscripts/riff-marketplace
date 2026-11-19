@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riff Marketplace</title>
+<meta name="description" content="Official Themes and Plugins for Riff music player.">
+<meta name="theme-color" content="#0c0d10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --font:"Inter",system-ui,-apple-system,sans-serif;
+  --bg:#0c0d10;
+  --s1:#15171d;
+  --s2:#1e212a;
+  --s3:#272b38;
+  --fg:#f3f4f7;
+  --mut:#8b8f9c;
+  --r:22px;
+  --r-m:14px;
+  --r-s:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100svh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;outline:0;cursor:pointer}
+svg{display:block;flex:none}
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.top{position:sticky;top:0;z-index:20;background:var(--bg)}
+.top-in{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:19px;letter-spacing:-0.03em}
+.mark{width:34px;height:34px;border-radius:10px;background:var(--s2);display:flex;align-items:center;justify-content:center}
+.logo{display:block;width:20px;height:20px;background:var(--fg);-webkit-mask:url(https://raw.githubusercontent.com/rootscripts/riff/main/assets/riff.svg) center/contain no-repeat;mask:url(https://raw.githubusercontent.com/rootscripts/riff/main/assets/riff.svg) center/contain no-repeat}
+
+.seg{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:var(--r-m);background:var(--s1)}
+.pill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:var(--r-s);background:var(--fg);transition:transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);pointer-events:none}
+.seg[data-tab="plugin"] .pill{transform:translateX(100%)}
+.seg-b{position:relative;z-index:1;height:36px;padding:0 20px;border-radius:var(--r-s);font-size:14px;font-weight:600;letter-spacing:-0.01em;color:var(--mut);transition:color 0.22s ease;white-space:nowrap}
+.seg-b.on{color:var(--bg)}
+
+.wrap{max-width:1200px;margin:0 auto;padding:24px 24px 80px}
+.hero{margin-bottom:32px}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:700;letter-spacing:-0.045em;line-height:1.02}
+.sub{color:var(--mut);font-size:16px;margin-top:10px;max-width:520px}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--s1);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:background 0.18s ease}
+.card:hover{background:#181b22}
+.cov{aspect-ratio:16/10;background:var(--s2);overflow:hidden}
+.cov img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.35s cubic-bezier(0.22, 1, 0.36, 1)}
+.card:hover .cov img{transform:scale(1.03)}
+
+.body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.name{font-size:19px;font-weight:700;letter-spacing:-0.025em;line-height:1.2;word-break:break-word}
+.ver{flex:none;font-size:12px;font-weight:600;color:var(--mut);background:var(--s2);padding:4px 9px;border-radius:8px}
+.auth{font-size:13px;color:var(--mut);font-weight:500}
+.desc{font-size:14px;color:var(--mut);line-height:1.5;flex:1;margin-top:4px;word-break:break-word}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;height:44px;padding:0 18px;margin-top:14px;border-radius:var(--r-m);background:var(--fg);color:var(--bg);font-size:14px;font-weight:600;letter-spacing:-0.01em;transition:background 0.16s ease,transform 0.14s ease}
+.btn:hover{background:#dcdfe6}
+.btn:active{transform:scale(0.98)}
+.btn.alt{width:auto;background:var(--s2);color:var(--fg);padding:0 22px}
+.btn.alt:hover{background:var(--s3)}
+
+.empty{grid-column:1/-1;background:var(--s1);border-radius:var(--r);padding:72px 24px;text-align:center}
+.empty h2{font-size:20px;font-weight:700;letter-spacing:-0.025em}
+.empty p{color:var(--mut);font-size:14px;margin-top:6px}
+
+.sk{animation:pulse 1.2s ease-in-out infinite alternate}
+.sk-box{height:14px;border-radius:6px;background:var(--s2)}
+.sk-w1{width:64%;height:20px}
+.sk-w2{width:36%}
+.sk-w3{width:92%}
+.sk-btn{height:44px;border-radius:var(--r-m);background:var(--s2);margin-top:14px}
+@keyframes pulse{from{opacity:0.55}to{opacity:1}}
+
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  .top-in{padding:14px 16px}
+  .wrap{padding:18px 16px 56px}
+  .grid{grid-template-columns:1fr}
+  .seg{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="./">
+      <span class="mark"><span class="logo"></span></span>
+      <span>Marketplace</span>
+    </a>
+    <div class="seg" id="tabs" role="tablist" data-tab="theme">
+      <span class="pill" aria-hidden="true"></span>
+      <button class="seg-b on" type="button" role="tab" aria-selected="true" data-t="theme">Themes</button>
+      <button class="seg-b" type="button" role="tab" aria-selected="false" data-t="plugin">Plugins</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1 id="title">Themes</h1>
+    <p class="sub" id="sub">Customize the look of Riff with community-made themes.</p>
+  </section>
+  <section class="grid" id="grid" aria-live="polite"></section>
+</main>
+
+<script>
+const API = 'https://riffmarketplace.pythonanywhere.com/api/items';
+const q = s => document.querySelector(s);
+let items = [];
+let cur = 'theme';
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function tab(t) {
+  cur = t;
+  const box = q('#tabs');
+  box.dataset.tab = t;
+  box.querySelectorAll('.seg-b').forEach(b => {
+    const on = b.dataset.t === t;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+  });
+  q('#title').textContent = t === 'theme' ? 'Themes' : 'Plugins';
+  q('#sub').textContent = t === 'theme'
+    ? 'Customize the look of Riff with community-made themes.'
+    : 'Extend Riff with lightweight community-made plugins.';
+  render();
+}
+
+function skel() {
+  q('#grid').innerHTML = Array.from({ length: 6 }, () => (
+    '<article class="card sk">' +
+      '<div class="cov"></div>' +
+      '<div class="body">' +
+        '<div class="sk-box sk-w1"></div>' +
+        '<div class="sk-box sk-w2"></div>' +
+        '<div class="sk-box sk-w3"></div>' +
+        '<div class="sk-btn"></div>' +
+      '</div>' +
+    '</article>'
+  )).join('');
+}
+
+function empty(head, sub, retry) {
+  q('#grid').innerHTML =
+    '<div class="empty">' +
+      '<h2>' + esc(head) + '</h2>' +
+      '<p>' + esc(sub) + '</p>' +
+      (retry ? '<button class="btn alt" id="retryBtn" type="button">Try again</button>' : '') +
+    '</div>';
+  if (retry) q('#retryBtn').addEventListener('click', load);
+}
+
+function render() {
+  const list = items.filter(x => x.type === cur);
+  if (!list.length) {
+    empty(
+      'No ' + (cur === 'theme' ? 'themes' : 'plugins') + ' available',
+      'Check back soon for new releases.',
+      false
+    );
+    return;
+  }
+  q('#grid').innerHTML = list.map(x => (
+    '<article class="card">' +
+      '<div class="cov"><img src="' + esc(x.cover_url) + '" alt="' + esc(x.name) + '" loading="lazy" decoding="async"></div>' +
+      '<div class="body">' +
+        '<div class="row">' +
+          '<h2 class="name">' + esc(x.name) + '</h2>' +
+          '<span class="ver">v' + esc(x.version.replace(/^v/i, '')) + '</span>' +
+        '</div>' +
+        '<div class="auth">by ' + esc(x.author) + '</div>' +
+        '<p class="desc">' + esc(x.description) + '</p>' +
+        '<a class="btn" href="' + esc(x.download_url) + '">' +
+          '<svg class="i" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>' +
+          '<span>Download</span>' +
+        '</a>' +
+      '</div>' +
+    '</article>'
+  )).join('');
+}
+
+async function load() {
+  skel();
+  try {
+    const r = await fetch(API, { cache: 'no-store' });
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    items = Array.isArray(data) ? data : [];
+    render();
+  } catch (e) {
+    empty('Could not load Marketplace', 'Unable to reach riffmarketplace.pythonanywhere.com.', true);
+  }
+}
+
+q('#tabs').addEventListener('click', e => {
+  const b = e.target.closest('.seg-b');
+  if (b && b.dataset.t !== cur) tab(b.dataset.t);
+});
+
+load();
+</script>
+</body>
+</html>
