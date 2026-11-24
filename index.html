@@ -113,7 +113,7 @@ svg{display:block;flex:none}
 </main>
 
 <script>
-const API = 'https://riffmarketplace.pythonanywhere.com/api/items';
+const API = './items.json';
 const q = s => document.querySelector(s);
 let items = [];
 let cur = 'theme';
@@ -182,7 +182,7 @@ function render() {
         '</div>' +
         '<div class="auth">by ' + esc(x.author) + '</div>' +
         '<p class="desc">' + esc(x.description) + '</p>' +
-        '<a class="btn" href="' + esc(x.download_url) + '">' +
+        '<a class="btn" download href="' + esc(x.download_url) + '">' +
           '<svg class="i" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>' +
           '<span>Download</span>' +
         '</a>' +
@@ -200,7 +200,7 @@ async function load() {
     items = Array.isArray(data) ? data : [];
     render();
   } catch (e) {
-    empty('Could not load Marketplace', 'Unable to reach riffmarketplace.pythonanywhere.com.', true);
+    empty('Could not load Marketplace', 'Unable to load items.json.', true);
   }
 }
 

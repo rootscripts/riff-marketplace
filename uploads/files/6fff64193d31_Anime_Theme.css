@@ -1,0 +1,66 @@
+:root,
+body {
+  --ui-alpha: 72% !important;
+  --panel-blur: 0px !important;
+  --page-bg: color-mix(in srgb, var(--md-sys-color-background-solid, #121214) var(--ui-alpha), transparent) !important;
+  --panel-bg: color-mix(in srgb, var(--md-sys-color-surface-container-solid, #1e1f22) var(--ui-alpha), transparent) !important;
+  --bar-editor-bg: var(--panel-bg) !important;
+}
+
+html {
+  background: #0d0e10 !important;
+}
+
+body,
+body:not(.classic-sidebar):not(.mini):not(.cover-bg-on):not(.has-video-bg):not(.has-custom-bg) {
+  background-color: #0d0e10 !important;
+  background-image:
+    linear-gradient(rgba(10, 10, 14, 0.58), rgba(10, 10, 14, 0.58)),
+    url("https://i.postimg.cc/ZnMV0sDq/wallhaven-y8klqd.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.bg-mesh-layer,
+#cover-bg {
+  display: none !important;
+}
+
+*,
+*::before,
+*::after {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.sidebar,
+.main-content,
+.right-panel:not(.hidden),
+.playbar,
+.rail-drawer,
+.np-queue-panel,
+.riff-ctx-menu,
+.m3-dropdown-menu,
+.search-history-panel,
+.audio-menu-card,
+.settings-card,
+.dialog-card,
+.modal-card,
+#view-settings .settings-view,
+#view-settings .settings-nav {
+  background: color-mix(in srgb, var(--md-sys-color-surface-container-solid, #1e1f22) var(--ui-alpha), transparent) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.top-nav {
+  background: transparent !important;
+}
+
+body:not(.classic-sidebar):not(.mini) .sidebar::before,
+body:not(.classic-sidebar):not(.mini) .sidebar::after,
+body:not(.classic-sidebar):not(.mini) .playbar::after {
+  display: none !important;
+}
